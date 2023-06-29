@@ -25,7 +25,9 @@
  .panel {
    background-size: auto 100%;
    background-position: center;
-   background-repeat: no-repeat;
+   /* 默认应该是 no-repeat 这要求素材必须是宽图 */
+   /* background-repeat: no-repeat; */
+   background-repeat: initial;
    height: 80vh;
    border-radius: 50px;
    color: #fff;
@@ -33,7 +35,7 @@
    flex: .5;
    margin: 10px;
    position: relative;
-   transition: flex .7s ease-in;
+   transition: flex .5s ease-in-out;
  }
 
  .panel h3 {
@@ -51,6 +53,8 @@
 
  .panel.active h3 {
    opacity: 1;
+   /* property name | duration | timing function | delay */
+   transition: opacity .3s ease-in-out .3s;
  }
 
  @media (max-width: 540px) {
