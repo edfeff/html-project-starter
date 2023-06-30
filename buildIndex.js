@@ -1,7 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 const dirs = fs.readdirSync(__dirname);
-
+dirs.sort(
+  (a, b) =>
+    fs.statSync(path.join(__dirname, a)).birthtime.getTime() -
+    fs.statSync(path.join(__dirname, b)).birthtime.getTime()
+);
 //读取需要配置到html的目录
 const projectNames = [];
 dirs.forEach((name) => {
